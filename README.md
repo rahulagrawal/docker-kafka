@@ -14,7 +14,7 @@ in the same container. This means:
 * Zookeeper and Kafka are configured to work together out of the box
 
 Run
----
+----
 
 ```bash
 docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 rahulagrawal/kafka
@@ -57,26 +57,26 @@ docker stop kafka
 docker rm -v kafka
 ```
 
-
+Alternate way to avoid localhost
 ```bash
 export KAFKA=`docker-machine ip \`docker-machine active\``:9092
-kafka-console-producer.sh --broker-list $KAFKA --topic test
+bin/kafka-console-producer.sh --broker-list $KAFKA --topic test
 ```
 
 ```bash
 export ZOOKEEPER=`docker-machine ip \`docker-machine active\``:2181
-kafka-console-consumer.sh --zookeeper $ZOOKEEPER --topic test
+bin/kafka-console-consumer.sh --zookeeper $ZOOKEEPER --topic test
 ```
 
 
 In the box
----
+----
 
   The docker image with both Kafka and Zookeeper. Built from the `kafka`
   directory.
 
 
----
+----
 
     docker build -t rahulagrawal/kafka kafka/
 
