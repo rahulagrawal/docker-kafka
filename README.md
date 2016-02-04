@@ -28,7 +28,7 @@ docker exec -i -t kafka bash
 
 ```bash   
 # cd to Kafka installation directory   
-cd /opt/kafka_2.11-0.8.2.1    
+cd /opt/kafka_2.11-0.9.0.0/
 
 # Create a topic
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic killrweather.raw
@@ -40,8 +40,8 @@ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```bash   
 To Stop Kafka in a Docker container:
 # Stop and delete the Kafka Docker container
-docker stop kafka1
-docker rm -v kafka1
+docker stop kafka
+docker rm -v kafka
 ```
 
 
