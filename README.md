@@ -1,8 +1,6 @@
 ### Kafka in Docker
 
-
 This repository provides everything you need to run Kafka in Docker.
-
 
 ### Why?
 
@@ -14,13 +12,11 @@ in the same container. This means:
 * Zookeeper and Kafka are configured to work together out of the box
 
 ### Run
-
-
 ```bash
 docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 rahulagrawal/kafka
 ```
+#### Getting into the shell and exploring kafka command line
 
-To get into bash shell of the container and smoke test producers and consumers
 ```bash
 docker exec -i -t kafka bash   
 ```
@@ -75,9 +71,9 @@ bin/kafka-console-consumer.sh --zookeeper $ZOOKEEPER --topic test
   The docker image with both Kafka and Zookeeper. Built from the `kafka`
   directory.
 
-
-----
-
-    docker build -t rahulagrawal/kafka kafka/
+#### How to build the docker image
+```bash    
+docker build -t rahulagrawal/kafka kafka/
+```    
 
 
