@@ -1,10 +1,10 @@
-Kafka in Docker
+### Kafka in Docker
 ===
 
 This repository provides everything you need to run Kafka in Docker.
 
 
-Why?
+### Why?
 ---
 The main hurdle of running Kafka in Docker is that it depends on Zookeeper.
 Compared to other Kafka docker images, this one runs both Zookeeper and Kafka
