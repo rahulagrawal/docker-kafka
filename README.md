@@ -21,20 +21,33 @@ docker run -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`dock
 ```
 
 To get into bash shell of the container and smoke test producers and consumers
-
 ```bash
 docker exec -i -t kafka bash   
 ```
 
+After we have logged into the bash shell.
 ```bash   
 # cd to Kafka installation directory   
 cd /opt/kafka_2.11-0.9.0.0/
 
 # Create a topic
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic killrweather.raw
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 
 # List the topic that was created
 bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+# Send some messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test 
+This is a message
+This is another message
+
+# Consume the messages and display
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+This is a message
+This is another message
+
+#To Exit Kafka Container:
+exit
 ```
 
 ```bash   
